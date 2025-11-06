@@ -1,0 +1,60 @@
+Cloud Project Documentation
+
+# Requirements
+- A trained model
+- Hosting: Oracle Free Tier
+- Fronted Integration
+-- A browser extension or background service that:
+-- Detects when a user hovers over or selects a link.
+-- Sends the URL to your Oracle-hosted API.
+-- Displays a popup or toast message with the analysis (safe/suspicious/malicious).
+
+# Tech Stack
+→ JavaScript Extension (Chrome/Edge/Firefox)
+→ REST API (Flask or FastAPI) on Oracle VM
+→ ML Model (scikit-learn / TensorFlow lite)
+→ Oracle API Gateway for secure access
+
+# Architecture
+1. Client-Side (Browser Extension)
+LinkListener() → Detects when user hovers/selects text containing a URL.
+SendToAnalyzer(url) → Sends URL to backend REST API.
+DisplayResultPopup(result) → Displays result (Safe / Suspicious / Malicious).
+
+2. Server-Side (Oracle Cloud)
+
+APIHandler() → Receives requests from extension.
+URLPreprocessor() → Cleans and normalizes URLs.
+FeatureExtractor() → Extracts features (domain length, special chars, entropy, etc.).
+MLModelPredict() → Runs prediction using pre-trained ML model.
+ResponseBuilder() → Returns JSON with confidence an
+
+MaliciousLinkDetector
+│
+├── Client (Browser Extension)
+│   ├── LinkListener()
+│   ├── SendToAnalyzer()
+│   └── DisplayResultPopup()
+│
+└── Server (Oracle Cloud)
+    ├── APIHandler()
+    ├── URLPreprocessor()
+    ├── FeatureExtractor()
+    ├── MLModelPredict()
+    └── ResponseBuilder()
+
+# Flow Chart
+User Hover/Selects Text
+        ↓
+LinkListener detects URL
+        ↓
+SendToAnalyzer → APIHandler (Oracle Cloud)
+        ↓
+URLPreprocessor → FeatureExtractor
+        ↓
+MLModelPredict → Get Classification
+        ↓
+ResponseBuilder → Send Result
+        ↓
+DisplayResultPopup → User sees analysis
+

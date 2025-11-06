@@ -1,0 +1,24 @@
+pandas
+scikit-learn
+joblib
+numpy
+matplotlib
+seaborn
+
+# GPU-accelerated libraries (RECOMMENDED for better performance)
+xgboost  # Supports GPU acceleration with device='cuda'
+lightgbm  # Supports GPU acceleration with device='gpu'
+
+# CuML/RAPIDS (OPTIONAL - Advanced GPU acceleration)
+# WARNING: CuML installation on Windows is complex and often fails
+# XGBoost and LightGBM GPU support is sufficient for most use cases
+# Only attempt CuML installation if you specifically need it:
+#
+# For Linux with CUDA 11:
+#   pip install cuml-cu11 cupy-cuda11x
+# For Linux with CUDA 12:
+#   pip install cuml-cu12 cupy-cuda12x
+#
+# Note: CuML is NOT required for GPU training.
+#       XGBoost and LightGBM will provide excellent GPU acceleration!
+
